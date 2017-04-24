@@ -47,3 +47,4 @@ class Book(models.Model):
 
     notes = models.TextField()
     copies = models.IntegerField(default=1)
+    created = models.DateTimeField(auto_now_add=True)
