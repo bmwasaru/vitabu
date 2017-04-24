@@ -126,4 +126,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'vitabu/static'),
 )
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'book_list'

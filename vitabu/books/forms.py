@@ -3,11 +3,17 @@ from django import forms
 from .models import Book
 
 
-class BookForm(forms.ModelForm):
-	# publication_date = forms.DateInput(attrs={'class':'datepicker'})
+class PublicationDate(forms.DateInput):
+    input_type = 'date'
 
-	class Meta:
-		model = Book
-		fields = ('title', 'publication_date', 'author', 'editor',
+
+class BookForm(forms.ModelForm):
+
+    class Meta:
+        model = Book
+        fields = ('title', 'publication_date', 'author', 'editor',
                   'edition', 'year', 'publisher', 'pages', 'condition',
                   'shelf_location', 'notes', 'copies')
+        widgets = {
+            'publication_date': PublicationDate(),
+        }
