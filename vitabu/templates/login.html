@@ -1,16 +1,53 @@
-{% extends 'base.html' %}
+{% load staticfiles %}
 
-{% block title %}Login{% endblock %}
+<!DOCTYPE html>
+<html lang="en" class="no-js"> 
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login and Registration Form </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+        <meta name="author" content="Codrops" />
 
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
-  <div class="form-group">
-    {% csrf_token %}
-    <div class="form-group">
-        {{ form.as_p }}
-    </div>
-    <button type="submit" class="btn btn-default">Login</button>
-  </div>
-  </form>
-{% endblock %}
+        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/style3.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/animate-custom.css' %}" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1></h1>
+            </header>
+            <section>       
+                <div id="container_demo" >
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="" autocomplete="on" method="post"> 
+                                <h1>Log in</h1> 
+                                {% csrf_token %}
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u"> Your username </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername" value="{{ form.username }}" />
+                                </p>
+
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p">Your password      </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" value=" {{ form.password }} " /> 
+                                </p>
+
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+                                </p>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
