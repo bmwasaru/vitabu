@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% extends 'base.html' %}
 
 <!DOCTYPE html>
 <html lang="en" class="no-js"> 
@@ -10,44 +10,25 @@
         <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
         <meta name="author" content="Codrops" />
 
-        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/demo.css' %}" />
-        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/style3.css' %}" />
-        <link rel="stylesheet" type="text/css" href=" {% static 'books/css/animate-custom.css' %}" />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1></h1>
-            </header>
-            <section>       
-                <div id="container_demo" >
-                    <a class="hiddenanchor" id="toregister"></a>
-                    <a class="hiddenanchor" id="tologin"></a>
-                    <div id="wrapper">
-                        <div id="login" class="animate form">
-                            <form  action="" autocomplete="on" method="post"> 
-                                <h1>Log in</h1> 
-                                {% csrf_token %}
-                                <p> 
-                                    <label for="username" class="uname" data-icon="u"> Your username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername" value="{{ form.username }}" />
-                                </p>
+<div class="container">
+    {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      <form class="form-signin" method="post" action="{% url 'login' %}" role="form" >
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
-                                <p> 
-                                    <label for="password" class="youpasswd" data-icon="p">Your password      </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" value=" {{ form.password }} " /> 
-                                </p>
+</div>
 
-                                <p class="login button"> 
-                                    <input type="submit" value="Login" /> 
-                                </p>
-
-                            </form>
-                        </div>
-
-                    </div>
-                </div>  
-            </section>
-        </div>
-    </body>
-</html>
+{% endblock %}

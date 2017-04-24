@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 from .models import Book
 from .forms import BookForm
 
+
 @login_required(login_url='/login/')
 def book_list(request):
     books = Book.objects.all()
@@ -27,7 +28,8 @@ def save_book_form(request, form, template_name):
         else:
             data['form_is_valid'] = False
     context = {'form': form}
-    data['html_form'] = render_to_string(template_name, context, request=request)
+    data['html_form'] = render_to_string(
+        template_name, context, request=request)
     return JsonResponse(data)
 
 
@@ -63,5 +65,6 @@ def book_delete(request, pk):
         })
     else:
         context = {'book': book}
-        data['html_form'] = render_to_string('books/includes/partial_book_delete.html', context, request=request)
+        data['html_form'] = render_to_string(
+            'books/includes/partial_book_delete.html', context, request=request)
     return JsonResponse(data)
