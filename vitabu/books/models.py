@@ -12,9 +12,13 @@ CONDITION = (
 )
 
 SHELF_LOCATION = (
-    ('1A', '1A'),
-    ('1B', '1B'),
-    ('1C', '1C'),
+    ('Business & I.T', 'Business & I.T'),
+    ('Economics', 'Economics'),
+    ('I.T', 'I.T'),
+    ('Law', 'Law'),
+    ('Mathematics', 'Mathematics'),
+    ('Medicine', 'Medicine'),
+    ('Scialogy', 'Socialogy'),
 )
 
 
