@@ -47,7 +47,7 @@ class Book(models.Model):
                                  default='choose condition')
 
     shelf_location = models.CharField('shelf_location',
-                                      max_length=10,
+                                      max_length=100,
                                       choices=SHELF_LOCATION,
                                       default='choose location')
 
