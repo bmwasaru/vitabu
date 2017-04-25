@@ -31,6 +31,9 @@
                 <li {% if request.path == '/books/' %} class="active"{% endif %}>
                     <a href="{% url 'book_list' %}">Books</a>
                 </li>
+                <li  class="active">
+                    <a href="#">Reports</a>
+                </li>
             </ul>
 
             {% else %}

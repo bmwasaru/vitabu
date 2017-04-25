@@ -12,9 +12,13 @@ CONDITION = (
 )
 
 SHELF_LOCATION = (
-    ('1A', '1A'),
-    ('1B', '1B'),
-    ('1C', '1C'),
+    ('Business & I.T', 'Business & I.T'),
+    ('Economics', 'Economics'),
+    ('I.T', 'I.T'),
+    ('Law', 'Law'),
+    ('Mathematics', 'Mathematics'),
+    ('Medicine', 'Medicine'),
+    ('Scialogy', 'Socialogy'),
 )
 
 
@@ -43,9 +47,10 @@ class Book(models.Model):
                                  default='choose condition')
 
     shelf_location = models.CharField('shelf_location',
-                                      max_length=10,
+                                      max_length=100,
                                       choices=SHELF_LOCATION,
                                       default='choose location')
 
     notes = models.TextField()
     copies = models.IntegerField(default=1)
+    created = models.DateTimeField(auto_now_add=True)
