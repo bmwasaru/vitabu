@@ -12,7 +12,7 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ('title', 'publication_date', 'author', 'editor',
-                  'edition', 'year', 'publisher', 'pages', 'condition',
+                  'edition', 'year', 'publisher', 'ISBN', 'pages', 'condition',
                   'shelf_location', 'notes', 'copies')
         widgets = {
             'publication_date': PublicationDate(),
